@@ -58,6 +58,8 @@ def css_defaults(name):
         return default
 
     for v in cur['values']:
+        if not v.startswith('<') and not v.endswith('>'):
+            continue
         ret = css_defaults(v)
         if ret is not None:
             return ret
